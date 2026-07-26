@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hold-n-Fold (MVP - play money)</title>
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Hold-n-Fold <span class="tag">play-money MVP</span></div>
+    <nav>
+      <button data-view="lobby" class="navBtn active">Lobby</button>
+      <button data-view="dashboard" class="navBtn">Dashboard</button>
+    </nav>
+    <div class="who"><span id="whoName">not signed in</span></div>
+  </header>
+
+  <main>
+    <section id="view-signin" class="view">
+      <div class="card">
+        <h2>Pick a display name</h2>
+        <p class="muted">No email, no deposit - this build runs entirely on free play-money chips so testers can jump straight in.</p>
+        <input id="nameInput" maxlength="20" placeholder="e.g. RiverRat88" />
+        <button id="signInBtn">Start Playing</button>
+      </div>
+    </section>
+
+    <section id="view-lobby" class="view hidden">
+      <div class="card">
+        <h2>Tables</h2>
+        <p class="muted">A new public hourly table opens every hour, 24/7 (up to 10 seats). Use the demo table to try the game right now.</p>
+        <div class="actions">
+          <button id="joinHourlyBtn">Join Next Hourly Table</button>
+          <button id="joinDemoBtn">Play Demo Table Now</button>
+        </div>
+        <div id="tableList" class="tableList"></div>
+      </div>
+    </section>
+
+    <section id="view-dashboard" class="view hidden">
+      <div class="card">
+        <h2>Your Dashboard</h2>
+        <div id="statsGrid" class="statsGrid"></div>
+        <h3>Public Leaderboard</h3>
+        <table class="lb">
+          <thead><tr><th>#</th><th>Player</th><th>Wins</th><th>Cashes</th><th>Games</th><th>Net Chips</th></tr></thead>
+          <tbody id="leaderboardBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="view-table" class="view hidden">
+      <div class="tableWrap">
+        <div class="pokerTable">
+          <div class="community" id="community"></div>
+          <div class="pot" id="potLabel">Pot: 0</div>
+          <div id="seats" class="seats"></div>
+        </div>
+        <div class="handInfo">
+          <div id="yourCards" class="yourCards"></div>
+          <div id="actionBar" class="actionBar hidden">
+            <button data-action="fold">Fold</button>
+            <button data-action="check">Check</button>
+            <button data-action="call" id="callBtn">Call</button>
+            <input id="raiseAmount" type="number" min="0" />
+            <button data-action="raise">Bet/Raise</button>
+          </div>
+          <div id="turnBanner" class="turnBanner"></div>
+        </div>
+        <div class="log" id="handLog"></div>
+        <button id="leaveTableBtn" class="leaveBtn">Back to Lobby</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Prototype for user testing only - play money, no real cryptocurrency is processed by this build.
+  </footer>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
