@@ -1,0 +1,77 @@
+:root {
+    --bg: #0f1720;
+    --panel: #16212c;
+    --accent: #2f9e6e;
+    --accent2: #d4af37;
+    --text: #eaf0f2;
+    --muted: #8ea0ab;
+    --felt: #0d3b2e;
+    --border: #24333f;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh; display: flex; flex-direction: column;
+}
+.topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 20px; background: var(--panel); border-bottom: 1px solid var(--border);
+}
+.brand { font-weight: 700; font-size: 1.1rem; }
+.brand .tag { font-size: 0.7rem; color: var(--accent2); border: 1px solid var(--accent2); border-radius: 6px; padding: 2px 6px; margin-left: 8px; }
+nav { display: flex; gap: 8px; }
+.navBtn { background: transparent; border: 1px solid var(--border); color: var(--muted); padding: 6px 14px; border-radius: 6px; cursor: pointer; }
+.navBtn.active { color: var(--text); border-color: var(--accent); }
+.who { color: var(--muted); font-size: 0.9rem; }
+
+.view { flex: 1; padding: 20px; max-width: 1100px; margin: 0 auto; width: 100%; }
+.hidden { display: none !important; }
+
+.authBox { max-width: 360px; margin: 60px auto; background: var(--panel); padding: 24px; border-radius: 10px; border: 1px solid var(--border); }
+.authBox h2 { margin-top: 0; }
+.authBox input { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text); margin-bottom: 12px; }
+
+button.primary { background: var(--accent); color: #fff; border: none; padding: 10px 18px; border-radius: 6px; cursor: pointer; font-weight: 600; }
+button.primary:hover { opacity: 0.9; }
+button.secondary { background: transparent; border: 1px solid var(--border); color: var(--text); padding: 10px 18px; border-radius: 6px; cursor: pointer; }
+
+.lobbyActions { display: flex; gap: 12px; margin-bottom: 20px; }
+.tableList { display: flex; flex-direction: column; gap: 10px; }
+.tableRow { display: flex; align-items: center; justify-content: space-between; background: var(--panel); padding: 14px 16px; border-radius: 8px; border: 1px solid var(--border); }
+.pill { font-size: 0.75rem; padding: 4px 10px; border-radius: 12px; background: var(--bg); border: 1px solid var(--border); color: var(--muted); }
+.pill.running { color: var(--accent2); border-color: var(--accent2); }
+.muted { color: var(--muted); }
+
+.statsGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 24px; }
+.stat { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 16px; text-align: center; }
+.stat .n { font-size: 1.6rem; font-weight: 700; }
+.stat .l { font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
+
+table.leaderboard { width: 100%; border-collapse: collapse; }
+table.leaderboard th, table.leaderboard td { padding: 8px 10px; border-bottom: 1px solid var(--border); text-align: left; font-size: 0.9rem; }
+
+#pokerTable { position: relative; width: 640px; height: 340px; margin: 20px auto; background: radial-gradient(ellipse at center, var(--felt) 0%, #082018 100%); border-radius: 200px; border: 10px solid #3a2a17; }
+#potLabel { position: absolute; top: 20px; left: 50%; transform: translateX(-50%); font-weight: 700; color: var(--accent2); }
+#community { position: absolute; top: 55px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; }
+
+.seat { position: absolute; width: 108px; background: rgba(15,23,32,0.9); border: 1px solid var(--border); border-radius: 8px; padding: 8px; text-align: center; font-size: 0.8rem; }
+.seat.turn { border-color: var(--accent2); box-shadow: 0 0 8px var(--accent2); }
+.seat.you { border-color: var(--accent); }
+.seat.folded { opacity: 0.4; }
+.seat .stack { font-weight: 700; color: var(--accent2); }
+
+.card-chip { display: inline-block; background: #fff; color: #111; border-radius: 4px; padding: 4px 6px; font-weight: 700; font-size: 0.8rem; min-width: 16px; text-align: center; }
+.card-chip.red { color: #c0392b; }
+
+#yourCards { display: flex; gap: 8px; justify-content: center; margin: 16px 0; }
+#turnBanner { text-align: center; font-weight: 600; min-height: 24px; margin-bottom: 8px; }
+
+#actionBar { display: flex; gap: 10px; justify-content: center; margin-bottom: 16px; }
+#actionBar button { background: var(--panel); border: 1px solid var(--border); color: var(--text); padding: 8px 16px; border-radius: 6px; cursor: pointer; }
+#actionBar button:hover { border-color: var(--accent); }
+#raiseAmount { width: 90px; padding: 8px; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text); }
+
+#handLog { max-height: 140px; overflow-y: auto; background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 10px; font-size: 0.8rem; color: var(--muted); }
+
+.footer { text-align: center; padding: 14px; color: var(--muted); font-size: 0.75rem; border-top: 1px solid var(--border); }
